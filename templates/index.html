@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Registration Form</title>
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+		<script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<h1>Registration form</h1>
+				<p> *= Required field</p>
+				{% with messages = get_flashed_messages() %}
+					{% if messages %}
+						{% for message in messages %}
+							<p>{{message}}</p>
+						{% endfor %}
+					{% endif %}
+				{% endwith %}
+			</div>
+			<div>
+				<form action='/process' method='post'>
+					First Name:* <input type="text" name="first_name" />
+					Last Name:* <input type="text" name="last_name" />
+					Email:* <input type="text" name="email" />
+					Password:* <input type="password" name="password" />
+					Confirm Password:* <input type="password" name="confirm_pw" />
+					<input type="submit" value="submit" name="submit" />
+				</form>
+			</div>
+		</div>
+
+
+
+
+	</body>
+</html>
